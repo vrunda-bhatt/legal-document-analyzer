@@ -1,7 +1,9 @@
+--prefer-binary
+
 # Core ML & NLP
 
 nltk==3.8.1
-scikit-learn==1.3.2
+scikit-learn==1.2.2
 
 # Data Processing
 pandas==2.1.4
