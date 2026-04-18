@@ -3,7 +3,7 @@ Text Preprocessing and Clause Segmentation Module
 Uses spaCy and NLTK for legal text processing
 """
 
-import spacy
+#import spacy
 import nltk
 from nltk.tokenize import sent_tokenize
 from nltk.corpus import stopwords
@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from backend.config import SPACY_MODEL
+#from backend.config import SPACY_MODEL
 
 
 class LegalTextPreprocessor:
@@ -21,7 +21,7 @@ class LegalTextPreprocessor:
     
     def __init__(self):
         # Load spaCy model
-        self.nlp = spacy.load(SPACY_MODEL)
+        #self.nlp = spacy.load(SPACY_MODEL)
         
         # Load NLTK resources
         self.stop_words = set(stopwords.words('english'))
