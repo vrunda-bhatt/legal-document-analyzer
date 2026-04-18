@@ -36,10 +36,30 @@ app.config['MAX_CONTENT_LENGTH'] = MAX_CONTENT_LENGTH
 app.config['UPLOAD_FOLDER'] = str(UPLOAD_FOLDER)
 
 # Initialize components
-preprocessor = LegalTextPreprocessor()
+'''preprocessor = LegalTextPreprocessor()
 ambiguity_detector = AmbiguityDetector()
 ml_classifier = MLClassifier()
-semantic_analyzer = None  # Lazy load due to model size
+semantic_analyzer = None  # Lazy load due to model size'''
+# Initialize components
+try:
+    preprocessor = LegalTextPreprocessor()
+except Exception as e:
+    print(f"Warning: Could not load preprocessor: {e}")
+    preprocessor = None
+
+try:
+    ambiguity_detector = AmbiguityDetector()
+except Exception as e:
+    print(f"Warning: Could not load ambiguity_detector: {e}")
+    ambiguity_detector = None
+
+try:
+    ml_classifier = MLClassifier()
+except Exception as e:
+    print(f"Warning: Could not load ml_classifier: {e}")
+    ml_classifier = None
+
+semantic_analyzer = None
 
 
 def allowed_file(filename: str) -> bool:
