@@ -119,7 +119,7 @@ class LegalTextPreprocessor:
         
         return clauses
     
-    def extract_linguistic_features(self, text: str) -> Dict:
+    '''def extract_linguistic_features(self, text: str) -> Dict:
         """Extract linguistic features using spaCy"""
         doc = self.nlp(text)
         
@@ -151,7 +151,7 @@ class LegalTextPreprocessor:
     def _extract_negations(self, doc) -> List[str]:
         """Extract negation words"""
         negations = [token.text for token in doc if token.dep_ == 'neg']
-        return negations
+        return negations'''
     
     def preprocess_document(self, file_path: str) -> Dict:
         """Main preprocessing pipeline for a legal document"""
@@ -173,7 +173,8 @@ class LegalTextPreprocessor:
         if clause_tuples:
             # Use labeled clauses
             for label, clause_text in clause_tuples:
-                features = self.extract_linguistic_features(clause_text)
+                #features = self.extract_linguistic_features(clause_text)
+                features = {}
                 processed_clauses.append({
                     'id': label,
                     'label': label,
@@ -184,7 +185,8 @@ class LegalTextPreprocessor:
             # Fall back to generic numbering if no labels found
             clauses = self.segment_into_clauses(cleaned_text)
             for i, clause in enumerate(clauses):
-                features = self.extract_linguistic_features(clause)
+                #features = self.extract_linguistic_features(clause)
+                features = {}
                 processed_clauses.append({
                     'id': i + 1,
                     'label': str(i + 1),
